@@ -6,7 +6,7 @@ This project implements a **decentralized control system** for a 3-DOF Cartesian
 
 Each joint is independently controlled using **PID controllers**, enabling accurate trajectory tracking and robust performance under parameter variations.
 
-**This project demonstrates how control systems can be applied to achieve stable and precise robotic motion in simulated environments.**
+**This project reflects practical control system design used in robotics and automation systems.**
 
 ---
 
@@ -50,6 +50,14 @@ Each prismatic joint (X, Y, Z) includes:
 * Feedback loop
 
 ![Control Architecture](results/simulink_control_architecture.png)
+
+---
+
+### 🔹 Example: Single Joint Control Loop
+
+The following diagram shows a zoomed-in view of the control loop for a single prismatic joint.
+
+![Single Joint Control](results/single_joint_control_diagram.png)
 
 ---
 
