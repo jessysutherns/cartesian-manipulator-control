@@ -1,12 +1,12 @@
-# 🤖 Cartesian Manipulator Control using PID
+# 🤖 Cartesian Manipulator Modelling and Control using PID
 
 ## 📌 Overview
 
-This project implements a **decentralized control system** for a 3-DOF Cartesian robot manipulator using MATLAB/Simulink.
+This project presents the **modelling, simulation, and control** of a 3-DOF Cartesian robot manipulator using MATLAB/Simulink.
 
-Each joint is independently controlled using **PID controllers**, enabling accurate trajectory tracking and robust performance under parameter variations.
+The system is first derived using **Lagrangian dynamics**, then implemented in Simulink to simulate its behaviour, and finally controlled using **decentralized PID controllers** to achieve accurate trajectory tracking.
 
-**This project reflects practical control system design used in robotics and automation systems.**
+**This project reflects a complete robotics workflow from dynamic modelling to control system implementation.**
 
 ---
 
@@ -19,6 +19,26 @@ The manipulator consists of three prismatic joints operating along:
 * Z-axis (step motion)
 
 The system dynamics are derived using a **Lagrangian formulation** to obtain the equations of motion for each joint.
+
+---
+
+## 🧮 Dynamic Modelling
+
+The dynamic behaviour of the Cartesian manipulator is derived using a **Lagrangian formulation**, capturing the relationship between applied forces and joint motion.
+
+* Kinetic energy is based on translational motion of each link
+* Potential energy is influenced by gravity along the Z-axis
+* Euler–Lagrange equations are used to derive the system dynamics
+
+This results in second-order differential equations describing each joint:
+
+* X-axis: q̈x = Fx / mx
+* Y-axis: q̈y = Fy / my
+* Z-axis: q̈z = (Fz − mg) / mz
+
+These equations form the foundation of the simulation model and are used to compute acceleration, velocity, and position over time.
+
+![Dynamic Model](results/dynamic_model_simulink.png)
 
 ---
 
@@ -93,7 +113,7 @@ The following diagram shows a zoomed-in view of the control loop for a single pr
 
 ## 🧩 Simulink Model
 
-The full control system is implemented in Simulink, where each joint is modelled independently with a PID controller and feedback loop.
+The full system, including both dynamic modelling and control implementation, is developed in Simulink.
 
 The model file is available in the `models/` folder.
 
@@ -124,10 +144,11 @@ https://github.com/jessysutherns
 
 ## ⭐ Project Significance
 
-This project demonstrates core robotics engineering concepts including:
+This project demonstrates a complete robotics pipeline including:
 
 * Dynamic modelling of manipulators
+* Simulation of physical systems
 * Control system design
-* Simulation and performance analysis
+* Performance evaluation
 
-It highlights how control strategies enable **precise and stable robotic motion** in real-world applications.
+It highlights how modelling and control work together to enable **precise and stable robotic motion** in real-world applications.
